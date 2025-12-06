@@ -7,6 +7,7 @@ fun main() = application {
     Window(
         onCloseRequest = ::exitApplication,
         title = "Andigan",
+        alwaysOnTop = true
     ) {
         App()
     }

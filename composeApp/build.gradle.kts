@@ -8,6 +8,9 @@ plugins {
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
     alias(libs.plugins.composeHotReload)
+    alias(libs.plugins.jetbrains.kotlin.serialization)
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.hilt)
 }
 
 kotlin {
@@ -44,6 +47,14 @@ kotlin {
         androidMain.dependencies {
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
+            implementation(libs.androidx.navigation3.ui)
+            implementation(libs.androidx.navigation3.runtime)
+            implementation(libs.androidx.lifecycle.viewmodel.navigation3)
+            implementation(libs.androidx.material3.adaptive.navigation3)
+            implementation(libs.kotlinx.serialization.core)
+            implementation(libs.hilt.android)
+            implementation(libs.androidx.hilt.navigation.compose)
+//            ksp(libs.hilt.compiler)
         }
         commonMain.dependencies {
             implementation(compose.runtime)
@@ -93,6 +104,7 @@ android {
 }
 
 dependencies {
+    ksp(libs.hilt.compiler)
     debugImplementation(compose.uiTooling)
 }
 
